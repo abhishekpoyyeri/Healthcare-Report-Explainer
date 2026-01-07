@@ -1,0 +1,19 @@
+PATIENT NAME: [SYNTHETIC]
+TEST: COMPLETE BLOOD COUNT (CBC) WITH DIFFERENTIAL
+
+WBC Count: 14.5 K/uL (High)   [Ref: 4.5 - 11.0]
+RBC Count: 4.80 M/uL          [Ref: 4.50 - 5.90]
+Hemoglobin: 14.2 g/dL         [Ref: 13.5 - 17.5]
+Hematocrit: 42.0 %            [Ref: 41.0 - 53.0]
+MCV: 88 fL                    [Ref: 80 - 100]
+Platelets: 250 K/uL           [Ref: 150 - 450]
+
+Differential:
+Neutrophils: 85% (High)       [Ref: 40 - 70%]
+Lymphocytes: 10% (Low)        [Ref: 20 - 45%]
+Monocytes: 4%                 [Ref: 2 - 10%]
+Eosinophils: 1%               [Ref: 0 - 6%]
+Basophils: 0%                 [Ref: 0 - 2%]
+
+IMPRESSION:
+Leukocytosis with neutrophilia, suggestive of bacterial infection or acute inflammation.

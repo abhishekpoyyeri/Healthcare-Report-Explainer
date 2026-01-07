@@ -1,0 +1,11 @@
+PATIENT NAME: [SYNTHETIC]
+DOB: 01/01/1980
+EXAM: CHEST X-RAY PA AND LATERAL VIEWS
+
+INDICATION: Cough and fever for 3 days.
+
+FINDINGS:
+The lungs are clear. There is no focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinal and hilar contours are unremarkable. The pulmonary vasculature is normal. No acute osseous abnormalities are seen.
+
+IMPRESSION:
+No acute cardiopulmonary disease. Use clinical correlation.

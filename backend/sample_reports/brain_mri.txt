@@ -1,0 +1,10 @@
+PATIENT NAME: [SYNTHETIC]
+EXAM: MRI BRAIN WITHOUT CONTRAST
+
+INDICATION: Headache.
+
+FINDINGS:
+The brain parenchyma demonstrates normal signal intensity and morphology. No acute infarction, hemorrhage, or mass effect is identified. The ventricles and basal cisterns are normal in size and configuration. The midline structures are centered. There is no evidence of hydrocephalus. The major intracranial flow voids are preserved. The paranasal sinuses and mastoid air cells are clear.
+
+IMPRESSION:
+Normal MRI of the brain. No intracranial abnormality.

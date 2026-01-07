@@ -1,0 +1,9 @@
+PATIENT NAME: [SYNTHETIC]
+TEST: THYROID PANEL
+
+TSH: 8.5 mIU/L (High)         [Ref: 0.4 - 4.0]
+Free T4: 0.7 ng/dL (Low)      [Ref: 0.8 - 1.8]
+Free T3: 2.5 pg/mL            [Ref: 2.3 - 4.2]
+
+IMPRESSION:
+Findings consistent with primary hypothyroidism. Suggest clinical correlation and f/u.

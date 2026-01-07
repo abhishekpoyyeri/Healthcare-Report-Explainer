@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedExplain AI - Medical Report Simplifier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    </script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header" role="banner">
+            <div class="logo">
+                <i class="fa-solid fa-hospital-user" aria-hidden="true"></i>
+                <h1 class="logo-text">MedExplain AI</h1>
+            </div>
+            <p class="subtitle">Securely Analyze & Understand Medical Reports</p>
+        </header>
+
+        <!-- Main Content -->
+        <main id="mainContent">
+            <!-- Input Section -->
+            <section class="input-section" id="inputSection" aria-label="Upload Report">
+                <div class="upload-container" id="dropZone" role="region" aria-label="File Upload Area">
+                    <div class="icon-pulse" aria-hidden="true">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+                    <h2>Upload Medical Report</h2>
+                    <p>Drag & drop PDF/TXT or click to browse</p>
+                    <input type="file" id="fileInput" accept=".pdf,.txt" hidden aria-label="File Upload">
+                    <button class="btn primary-btn" onclick="document.getElementById('fileInput').click()">Select
+                        File</button>
+                    <p class="divider" aria-hidden="true">- OR -</p>
+                    <textarea id="textInput" placeholder="Paste medical report text here..."
+                        aria-label="Paste medical report text"></textarea>
+                    <button class="btn action-btn" id="analyzeBtn">
+                        <i class="fa-solid fa-user-md" aria-hidden="true"></i> Explain Report
+                    </button>
+                </div>
+            </section>
+
+            <!-- Loading Spinner -->
+            <div class="loading-overlay" id="loadingOverlay" hidden aria-live="assertive" aria-label="Analyzing">
+                <div class="spinner" role="status"></div>
+                <p>Analyzing Medical Data...</p>
+            </div>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" hidden aria-live="polite">
+                <div class="results-header">
+                    <button class="back-btn" id="backBtn" aria-label="Start New Analysis"><i
+                            class="fa-solid fa-arrow-left" aria-hidden="true"></i> New Analysis</button>
+                    <div class="mode-toggles" role="tablist" aria-label="View Modes">
+                        <button class="mode-btn active" data-mode="patient" role="tab" aria-selected="true"
+                            aria-controls="patientView" id="tab-patient">Patient Mode</button>
+                        <button class="mode-btn" data-mode="clinician" role="tab" aria-selected="false"
+                            aria-controls="clinicianView" id="tab-clinician">Clinician Mode</button>
+                    </div>
+                </div>
+
+                <div class="content-display">
+                    <!-- Patient View -->
+                    <div id="patientView" class="view-pane active" role="tabpanel" aria-labelledby="tab-patient"
+                        tabindex="0">
+                        <div class="info-card">
+                            <h3><i class="fa-solid fa-user-doctor" aria-hidden="true"></i> Patient Explanation</h3>
+                            <div class="content-body" id="patientContent"></div>
+                        </div>
+                    </div>
+
+                    <!-- Clinician View -->
+                    <div id="clinicianView" class="view-pane" role="tabpanel" aria-labelledby="tab-clinician" hidden
+                        tabindex="0">
+                        <div class="info-card technical">
+                            <h3><i class="fa-solid fa-stethoscope" aria-hidden="true"></i> Clinical Analysis</h3>
+                            <div class="content-body" id="clinicianContent"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Info -->
+                <div class="report-footer" role="contentinfo">
+                    <div class="citations">
+                        <h4><i class="fa-solid fa-book-medical" aria-hidden="true"></i> Trusted Sources</h4>
+                        <ul id="citationList"></ul>
+                    </div>
+                    <div class="disclaimer-banner" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                        <p id="disclaimerText">AI generated content. Not a substitute for professional medical advice.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

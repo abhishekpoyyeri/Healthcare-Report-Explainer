@@ -1,0 +1,18 @@
+PATIENT NAME: [SYNTHETIC]
+EXAM: CT ABDOMEN AND PELVIS WITHOUT CONTRAST
+
+INDICATION: Right lower quadrant pain.
+
+FINDINGS:
+Liver: Normal size and contour. No focal lesions.
+Gallbladder: No stones or wall thickening.
+Spleen: Normal.
+Pancreas: Unremarkable.
+Kidneys: No hydronephrosis or calculi.
+Appendix: The appendix is visualized and is normal in caliber (4 mm), with no periappendiceal fat stranding.
+Bowel: No dilated loops or evidence of obstruction.
+Bones: No acute fractures.
+
+IMPRESSION:
+1. Normal CT of the abdomen and pelvis.
+2. No evidence of appendicitis or acute ureteral calculus.
