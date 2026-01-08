@@ -11,7 +11,7 @@ A secure, offline AI application that analyzes medical reports (PDF/Text) and ge
 *   **Dual-Mode Explanations**:
     *   **Patient Mode**: Breaks down complex terms into everyday language, explains implications, and suggests questions for doctors.
     *   **Clinician Mode**: Provides a concise, technical bullet-point summary with key findings and critical values.
-*   **Fully Local AI**: Uses the `Meta-Llama-3-8B-Instruct` model via GPT4All for high-quality, offline inference.
+*   **Fully Local AI**: Uses the **Phi-3 Mini** model (via GPT4All) for high-speed, efficient, and offline inference.
 *   **Smart Extraction**: Parses PDF and Text files to identify findings, impressions, and abnormal values.
 *   **Citation System**: Automatically links medical terms to trustworthy sources (e.g., NIH, Mayo Clinic).
 *   **Accessible Design**: High-contrast UI, screen-reader friendly (ARIA support), and keyboard navigable.
@@ -19,15 +19,16 @@ A secure, offline AI application that analyzes medical reports (PDF/Text) and ge
 ## 🛠️ Tech Stack
 
 *   **Backend**: Python, FastAPI
-*   **AI Engine**: GPT4All (Llama 3 8B Quantized)
+*   **AI Engine**: GPT4All (Phi-3 Mini 4K Instruct)
 *   **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
 *   **PDF Processing**: PDF.js (Client-side extraction)
 
 ## 📋 Prerequisites
 
 *   **Python 3.10** or higher.
-*   **RAM**: At least 8GB (16GB recommended for smoother AI performance).
-*   **Disk Space**: ~5GB free space (for the AI model file).
+*   **RAM**: At least 4GB (8GB recommended for optimal performance).
+*   **Disk Space**: ~2.5GB free space (for the AI model file).
+*   **Optional**: A GPU (NVIDIA/AMD) for accelerated inference (Vulkan support is automatic).
 
 ## 🚀 Installation & Setup
 
@@ -63,7 +64,7 @@ python -m uvicorn backend.main:app --port 8000
 ```
 
 > **⚠️ Important First-Run Note**:
-> When you run this for the first time, the application will automatically download the AI model file (`Meta-Llama-3-8B-Instruct.Q4_0.gguf`, approx. 4.7 GB).
+> When you run this for the first time, the application will automatically download the AI model file (`Phi-3-mini-4k-instruct.Q4_0.gguf`, approx. 2.4 GB).
 >
 > **Please wait** until you see the message: `Application startup complete`.
 
@@ -79,7 +80,7 @@ Open your web browser and navigate to:
     *   *Sample reports are available in the `backend/sample_reports/` folder.*
 2.  **Analyze**:
     *   Click the **"Explain Report"** button.
-    *   *Note: On a standard CPU, analysis may take 30-60 seconds.*
+    *   *Note: With Phi-3, analysis is significantly faster (typically <10 seconds on modern hardware).*
 3.  **View Results**:
     *   Toggle between **"Patient Mode"** and **"Clinician Mode"** tabs to see different perspectives.
     *   Check the "Trusted Sources" section for definitions of medical terms.
@@ -89,7 +90,7 @@ Open your web browser and navigate to:
 ```
 ├── backend/
 │   ├── main.py              # FastAPI entry point
-│   ├── local_ai_engine.py   # GPT4All wrapper & model loader
+│   ├── local_ai_engine.py   # GPT4All wrapper & model loader (Optimized for Phi-3)
 │   ├── pipeline.py          # Orchestrates Extraction -> Formatting
 │   ├── extractor.py         # Structured data extraction logic
 │   ├── formatter.py         # Generation of explanations

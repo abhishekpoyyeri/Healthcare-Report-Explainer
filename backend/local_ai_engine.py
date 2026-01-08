@@ -6,7 +6,7 @@ from gpt4all import GPT4All
 logger = logging.getLogger(__name__)
 
 # Config
-MODEL_NAME = "Meta-Llama-3-8B-Instruct.Q4_0.gguf"
+MODEL_NAME = "Phi-3-mini-4k-instruct.Q4_0.gguf"
 # Allow overriding model path via env, default to current directory or standard cache
 MODEL_PATH = os.getenv("LOCAL_MODEL_PATH", None) 
 
@@ -21,27 +21,27 @@ def get_model():
         logger.info(f"Loading Local LLM: {MODEL_NAME}...")
         try:
             # GPT4All will download the model to ~/.cache/gpt4all/ if not found
-            _model_instance = GPT4All(MODEL_NAME, model_path=MODEL_PATH, allow_download=True)
+            # Attempt to use GPU (Vulkan) if available, otherwise CPU
+            _model_instance = GPT4All(MODEL_NAME, model_path=MODEL_PATH, allow_download=True, device='gpu')
             logger.info("Model loaded successfully.")
         except Exception as e:
             logger.error(f"Failed to load model: {e}")
             raise e
     return _model_instance
 
-def local_generate(prompt: str, system_prompt: str = None, max_tokens: int = 1000, temperature: float = 0.7) -> str:
+def local_generate(prompt: str, system_prompt: str = None, max_tokens: int = 512, temperature: float = 0.4) -> str:
     """
     Generates text using the local LLM.
     """
     model = get_model()
     
-    # Construct prompt based on simple concatenation or chat template if supported
-    # Llama 3 Instruct format:
-    # <|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n{system_prompt}<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n
+    # Construct prompt for Phi-3 Instruct format:
+    # <|system|>\n{system_prompt}<|end|>\n<|user|>\n{prompt}<|end|>\n<|assistant|>\n
     
-    formatted_prompt = "<|begin_of_text|>"
+    formatted_prompt = ""
     if system_prompt:
-        formatted_prompt += f"<|start_header_id|>system<|end_header_id|>\n\n{system_prompt}<|eot_id|>"
-    formatted_prompt += f"<|start_header_id|>user<|end_header_id|>\n\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+        formatted_prompt += f"<|system|>\n{system_prompt}<|end|>\n"
+    formatted_prompt += f"<|user|>\n{prompt}<|end|>\n<|assistant|>\n"
 
     try:
         output = model.generate(
