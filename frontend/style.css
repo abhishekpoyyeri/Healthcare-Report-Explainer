@@ -235,3 +235,25 @@ input:focus-visible {
     white-space: nowrap;
     border: 0;
 }
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: 2px solid  #0ea5e9;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    color:#0ea5e9;
+}
+
+.back-btn:hover {
+    background-color: #e2e6ea;
+    border-color: #adb5bd;
+}
+
+.back-btn i {
+    font-size: 0.9em;
+}
